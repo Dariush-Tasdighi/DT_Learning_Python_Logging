@@ -2,7 +2,7 @@ import os
 import logging
 from rich import print
 from dt_logging import setup_logging
-import learn_0500_module as my_module
+import learn_0600_module as my_module
 
 
 def main() -> None:

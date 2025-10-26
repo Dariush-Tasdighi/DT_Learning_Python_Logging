@@ -1,6 +1,8 @@
 import logging
 
 logger = logging.getLogger(name=__name__)
+# NEW
+logger.addHandler(logging.NullHandler())
 
 
 def do_something() -> None:
