@@ -10,7 +10,7 @@ LOGGING_ENCODING: str = "utf-8"
 LOGGING_FILE_PATH: str = "./app_0400.log"
 LOGGING_DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 LOGGING_FORMAT: str = (
-    "%(asctime)s,%(msecs)03d [%(levelname)-8s] [%(filename)s:%(lineno)d] %(message)s"
+    "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno)4d] %(message)s"
 )
 
 logging.basicConfig(
@@ -50,15 +50,15 @@ def main() -> None:
 
     print()
 
+    my_module.do_something()
+
+    print()
+
     logger.debug(msg="سلام")
     logger.info(msg="سلام")
     logger.warning(msg="سلام")
     logger.error(msg="سلام")
     logger.critical(msg="سلام")
-
-    print()
-
-    my_module.do_something()
 
 
 if __name__ == "__main__":

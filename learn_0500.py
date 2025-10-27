@@ -3,10 +3,11 @@ import logging
 from rich import print
 import learn_0500_module as my_module
 
-LOGGING_ENCODING: str = "utf-8"
-LOGGING_DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
-LOGGING_FORMAT: str = (
-    "%(asctime)s,%(msecs)03d [%(levelname)-8s] [%(filename)s:%(lineno)d] %(message)s"
+FILE_MODE: str = "at"
+FILE_ENCODING: str = "utf-8"
+DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
+FORMAT: str = (
+    "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno)4d] %(message)s"
 )
 
 
@@ -19,29 +20,20 @@ def setup_logging(
 
     root = logging.getLogger()
 
-    # remove existing handlers (avoid duplicate logs on reconfigure)
-    for handler in root.handlers[:]:
-        root.removeHandler(hdlr=handler)
-
-    # let handlers decide what to emit; keep root at lowest useful level
+    # Let handlers decide what to emit
+    # keep root at lowest useful level
     root.setLevel(level=logging.DEBUG)
 
+    # از بین بردن تمام پیش‌فرض‌ها
+    # Remove existing handlers for
+    # avoiding duplicate logs on reconfigure!
+    for handler in root.handlers:
+        root.removeHandler(hdlr=handler)
+
     formatter = logging.Formatter(
-        fmt=LOGGING_FORMAT,
-        datefmt=LOGGING_DATE_FORMAT,
+        fmt=FORMAT,
+        datefmt=DATE_FORMAT,
     )
-
-    # File Handler:
-
-    file_handler = logging.FileHandler(
-        filename=file_path,
-        encoding=LOGGING_ENCODING,
-    )
-
-    file_handler.setFormatter(fmt=formatter)
-    file_handler.setLevel(level=file_level)
-
-    root.addHandler(hdlr=file_handler)
 
     # Console Handler:
 
@@ -51,6 +43,19 @@ def setup_logging(
     console_handler.setLevel(level=console_level)
 
     root.addHandler(hdlr=console_handler)
+
+    # File Handler:
+
+    file_handler = logging.FileHandler(
+        mode=FILE_MODE,
+        filename=file_path,
+        encoding=FILE_ENCODING,
+    )
+
+    file_handler.setFormatter(fmt=formatter)
+    file_handler.setLevel(level=file_level)
+
+    root.addHandler(hdlr=file_handler)
 
 
 def main() -> None:
@@ -66,15 +71,15 @@ def main() -> None:
 
     print()
 
+    my_module.do_something()
+
+    print()
+
     logger.debug(msg="سلام")
     logger.info(msg="سلام")
     logger.warning(msg="سلام")
     logger.error(msg="سلام")
     logger.critical(msg="سلام")
-
-    print()
-
-    my_module.do_something()
 
 
 if __name__ == "__main__":

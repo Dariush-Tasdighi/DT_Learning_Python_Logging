@@ -1,6 +1,12 @@
+# **************************************************
+# Enable Logging in 6 Steps!
+# **************************************************
+
 import os
+# Step (1)
 import logging
 from rich import print
+# Step (2)
 from dt_logging import setup_logging
 import learn_0600_module as my_module
 
@@ -18,19 +24,22 @@ def main() -> None:
 
     print()
 
+    my_module.do_something()
+
+    print()
+
     logger.debug(msg="سلام")
     logger.info(msg="سلام")
     logger.warning(msg="سلام")
     logger.error(msg="سلام")
     logger.critical(msg="سلام")
 
-    print()
-
-    my_module.do_something()
-
 
 if __name__ == "__main__":
+    # Step (3)
     setup_logging(file_path="./app_0600.log")
+
+    # Step (4)
     logger = logging.getLogger(name=__name__)
 
     main()

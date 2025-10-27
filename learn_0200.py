@@ -1,39 +1,281 @@
-import os
+# **************************************************
+# Default: Console
+# Default: Warning
+# **************************************************
 import logging
-from rich import print
+
+logging.log(level=logging.DEBUG, msg="Debug...")
+logging.log(level=logging.INFO, msg="Info...")
+logging.log(level=logging.WARNING, msg="Warning...")  # Default
+logging.log(level=logging.ERROR, msg="Error...")
+logging.log(level=logging.CRITICAL, msg="Critical...")
+# **************************************************
 
 
-def main() -> None:
-    """Main function."""
+# **************************************************
+# import logging
 
-    os.system(command="cls" if os.name == "nt" else "clear")
-
-    # **************************************************
-    # logging.debug(msg="This is debug.")
-    # logging.info(msg="This is info.")
-    # logging.warning(msg="This is warning.")
-    # logging.error(msg="This is error.")
-    # logging.critical(msg="This is critical.")
-
-    # # logging.exception(msg="This is exception.")
-
-    # print()
-    # **************************************************
-
-    # **************************************************
-    # مهم
-    # Default: 'warning'
-    logging.basicConfig(level=logging.DEBUG)
-
-    logging.debug(msg="This is debug.")
-    logging.info(msg="This is info.")
-    logging.warning(msg="This is warning.")
-    logging.error(msg="This is error.")
-    logging.critical(msg="This is critical.")
-
-    print()
-    # **************************************************
+# logging.debug(msg="Debug...")
+# logging.info(msg="Info...")
+# logging.warning(msg="Warning...")  # Default
+# logging.error(msg="Error...")
+# logging.critical(msg="Critical...")
+# **************************************************
 
 
-if __name__ == "__main__":
-    main()
+# **************************************************
+# For Error Handling
+# **************************************************
+# try:
+#     result = 1 / 0
+# except Exception as e:
+#     print(f"Error! {e}")
+# **************************************************
+
+
+# **************************************************
+# try:
+#     result = 1 / 0
+# except Exception as e:
+#     print(f"[-] {e}")
+# **************************************************
+
+
+# **************************************************
+# import logging
+
+# try:
+#     result = 1 / 0
+# except Exception as e:
+#     logging.error(msg=e)
+# **************************************************
+
+
+# **************************************************
+# import logging
+
+# try:
+#     result = 1 / 0
+# except Exception as e:
+#     logging.error(msg=e, exc_info=True)
+# **************************************************
+
+
+# **************************************************
+# import logging
+
+# try:
+#     result = 1 / 0
+# except Exception as e:
+#     logging.exception(msg=e)
+# **************************************************
+
+
+# **************************************************
+# Change Default of Log Level
+# **************************************************
+# import logging
+
+# # NEW
+# logging.basicConfig(level=logging.DEBUG)
+# # logging.basicConfig(level=logging.ERROR)
+# # logging.basicConfig(level=logging.CRITICAL)
+
+# logging.debug(msg="Debug...")
+# logging.info(msg="Info...")
+# logging.warning(msg="Warning...")  # Default
+# logging.error(msg="Error...")
+# logging.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# Log to (JUST) File
+# **************************************************
+# import logging
+
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     # NEW
+#     encoding="utf-8",
+#     filename="./app_0200.log",
+#     filemode="wt",  # Default: "at"
+# )
+
+# logging.debug(msg="Debug...")
+# logging.info(msg="Info...")
+# logging.warning(msg="Warning...")
+# logging.error(msg="Error...")
+# logging.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# Change the Format
+#
+# https://docs.python.org/3/library/logging.html#logrecord-attributes
+# **************************************************
+# import logging
+
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     # NEW
+#     format="%(asctime)s - %(levelname)s - %(message)s",
+#     # format="%(asctime)s - [%(levelname)-8s] - %(message)s",
+# )
+
+# logging.debug(msg="Debug...")
+# logging.info(msg="Info...")
+# logging.warning(msg="Warning...")
+# logging.error(msg="Error...")
+# logging.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# Custom Logger
+# **************************************************
+# import logging
+
+# # NEW: root -> Googooli
+# logger = logging.getLogger(name="Googooli")
+
+# # NEW: logging -> logger
+# logger.debug(msg="Debug...")
+# logger.info(msg="Info...")
+# logger.warning(msg="Warning...")  # Default
+# logger.error(msg="Error...")
+# logger.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# import logging
+
+# # NEW
+# logging.basicConfig(
+#     # NEW
+#     level=logging.NOTSET,
+#     # NEW: %(name)s
+#     format="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
+# )
+
+# # NEW: root -> Googooli
+# logger_googooli = logging.getLogger(name="Googooli")
+
+# # NEW: root -> Magooli
+# logger_magooli = logging.getLogger(name="Magooli")
+
+# logger_googooli.debug(msg="Debug...")
+# logger_googooli.info(msg="Info...")
+# logger_googooli.warning(msg="Warning...")
+# logger_googooli.error(msg="Error...")
+# logger_googooli.critical(msg="Critical...")
+
+# print("-" * 50)
+
+# logger_magooli.debug(msg="Debug...")
+# logger_magooli.info(msg="Info...")
+# logger_magooli.warning(msg="Warning...")
+# logger_magooli.error(msg="Error...")
+# logger_magooli.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# import logging
+
+# root = logging.getLogger()
+
+# # Let handlers decide what to emit
+# # keep root at lowest useful level
+# root.setLevel(level=logging.DEBUG)
+
+# # از بین بردن تمام پیش‌فرض‌ها
+# # Remove existing handlers for
+# # avoiding duplicate logs on reconfigure!
+# for handler in root.handlers:
+#     root.removeHandler(hdlr=handler)
+
+# # NEW: Best Practice: Googooli -> __name__
+# logger = logging.getLogger(name=__name__)
+
+# logger.debug(msg="Debug...")
+# logger.info(msg="Info...")
+# logger.warning(msg="Warning...")
+# logger.error(msg="Error...")
+# logger.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# StreamHandler: Console Handler
+# **************************************************
+# import logging
+
+# root = logging.getLogger()
+# root.setLevel(level=logging.DEBUG)
+# for handler in root.handlers:
+#     root.removeHandler(hdlr=handler)
+
+# formatter = logging.Formatter(
+#     fmt="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
+# )
+
+# console_handler = logging.StreamHandler()
+
+# console_handler.setFormatter(fmt=formatter)
+# console_handler.setLevel(level=logging.DEBUG)
+
+# logger = logging.getLogger(name=__name__)
+# logger.addHandler(hdlr=console_handler)
+
+# logger.debug(msg="Debug...")
+# logger.info(msg="Info...")
+# logger.warning(msg="Warning...")
+# logger.error(msg="Error...")
+# logger.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# FileHandler
+# **************************************************
+# import logging
+
+# root = logging.getLogger()
+# root.setLevel(level=logging.DEBUG)
+# for handler in root.handlers:
+#     root.removeHandler(hdlr=handler)
+
+# formatter = logging.Formatter(
+#     fmt="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
+# )
+
+# console_handler = logging.StreamHandler()
+
+# console_handler.setFormatter(fmt=formatter)
+# console_handler.setLevel(level=logging.DEBUG)
+
+# # NEW
+# file_handler = logging.FileHandler(
+#     mode="at",
+#     encoding="utf-8",
+#     filename="./app_0200.log",
+# )
+
+# # NEW
+# file_handler.setFormatter(fmt=formatter)
+# file_handler.setLevel(level=logging.WARNING)
+
+# logger = logging.getLogger(name=__name__)
+# # NEW
+# logger.addHandler(hdlr=file_handler)
+# logger.addHandler(hdlr=console_handler)
+
+# logger.debug(msg="Debug...")
+# logger.info(msg="Info...")
+# logger.warning(msg="Warning...")
+# logger.error(msg="Error...")
+# logger.critical(msg="Critical...")
+# **************************************************

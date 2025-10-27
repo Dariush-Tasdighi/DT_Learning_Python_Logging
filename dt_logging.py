@@ -1,5 +1,5 @@
 """
-Lightweight logging configuration helpers - Version 1.0
+Lightweight logging configuration helpers - Version 1.1
 
 This module provides a small, dependency-free helper for configuring Python's
 standard logging module with sane defaults for both console and file output.
@@ -32,7 +32,8 @@ Notes
 
 import logging
 
-ENCODING: str = "utf-8"
+FILE_MODE: str = "at"
+FILE_ENCODING: str = "utf-8"
 DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 FORMAT: str = (
     "%(asctime)s,%(msecs)03d [%(levelname)-8s] [%(filename)s:%(lineno)d] %(message)s"
@@ -48,31 +49,20 @@ def setup_logging(
 
     root = logging.getLogger()
 
-    # Note: Remove existing handlers
-    # for avoiding duplicate logs on reconfigure!
-    for handler in root.handlers[:]:
-        root.removeHandler(hdlr=handler)
-
-    # Note: let handlers decide what to emit
+    # Let handlers decide what to emit
     # keep root at lowest useful level
     root.setLevel(level=logging.DEBUG)
+
+    # از بین بردن تمام پیش‌فرض‌ها
+    # Remove existing handlers for
+    # avoiding duplicate logs on reconfigure!
+    for handler in root.handlers:
+        root.removeHandler(hdlr=handler)
 
     formatter = logging.Formatter(
         fmt=FORMAT,
         datefmt=DATE_FORMAT,
     )
-
-    # File Handler:
-
-    file_handler = logging.FileHandler(
-        encoding=ENCODING,
-        filename=file_path,
-    )
-
-    file_handler.setFormatter(fmt=formatter)
-    file_handler.setLevel(level=file_level)
-
-    root.addHandler(hdlr=file_handler)
 
     # Console Handler:
 
@@ -82,6 +72,19 @@ def setup_logging(
     console_handler.setLevel(level=console_level)
 
     root.addHandler(hdlr=console_handler)
+
+    # File Handler:
+
+    file_handler = logging.FileHandler(
+        mode=FILE_MODE,
+        filename=file_path,
+        encoding=FILE_ENCODING,
+    )
+
+    file_handler.setFormatter(fmt=formatter)
+    file_handler.setLevel(level=file_level)
+
+    root.addHandler(hdlr=file_handler)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,9 @@
 import logging
 
+# Step (5)
 logger = logging.getLogger(name=__name__)
-# NEW
+
+# NEW: Step (6)
 logger.addHandler(logging.NullHandler())
 
 
