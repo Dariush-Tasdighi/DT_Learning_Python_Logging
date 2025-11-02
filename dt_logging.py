@@ -1,5 +1,5 @@
 """
-Lightweight logging configuration helpers - Version 1.1
+Lightweight logging configuration helpers
 
 This module provides a small, dependency-free helper for configuring Python's
 standard logging module with sane defaults for both console and file output.
@@ -32,11 +32,12 @@ Notes
 
 import logging
 
+VERSION: str = "1.2"
 FILE_MODE: str = "at"
 FILE_ENCODING: str = "utf-8"
 DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 FORMAT: str = (
-    "%(asctime)s,%(msecs)03d [%(levelname)-8s] [%(filename)s:%(lineno)d] %(message)s"
+    "%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s"
 )
 
 
@@ -45,7 +46,7 @@ def setup_logging(
     file_level=logging.WARNING,
     file_path: str = "./app.log",
 ) -> None:
-    """Setup Logging"""
+    """Setup logging"""
 
     root = logging.getLogger()
 

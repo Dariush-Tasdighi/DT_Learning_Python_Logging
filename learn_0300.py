@@ -12,6 +12,7 @@ logging.basicConfig(
 # Step (2)
 # logging.basicConfig(
 #     level=logging.DEBUG,
+#     # NEW
 #     datefmt="%Y-%m-%dT%H:%M:%S",
 #     format="%(asctime)s,%(msecs)03d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
 # )
@@ -20,14 +21,14 @@ logging.basicConfig(
 # logging.basicConfig(
 #     level=logging.DEBUG,
 #     datefmt="%Y-%m-%d %H:%M:%S",
-#     format="%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] %(message)s",
+#     format="%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s",
 # )
 
 logger = logging.getLogger(name=__name__)
 
 
 def main() -> None:
-    """Main function."""
+    """Main of program."""
 
     os.system(command="cls" if os.name == "nt" else "clear")
 

@@ -1,4 +1,4 @@
-# Working with YouTube
+# Working with Logging
 
 - Package: 'rich'
     - https://pypi.org/project/rich

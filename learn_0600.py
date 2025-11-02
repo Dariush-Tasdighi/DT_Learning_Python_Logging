@@ -1,5 +1,5 @@
 # **************************************************
-# Enable Logging in 6 Steps!
+# Enable Logging in 7 Steps!
 # **************************************************
 
 import os
@@ -12,7 +12,7 @@ import learn_0600_module as my_module
 
 
 def main() -> None:
-    """Main function."""
+    """Main of program."""
 
     os.system(command="cls" if os.name == "nt" else "clear")
 

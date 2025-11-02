@@ -1,10 +1,11 @@
+# Step (5)
 import logging
 
-# Step (5)
+# Step (6)
 logger = logging.getLogger(name=__name__)
 
-# NEW: Step (6)
-logger.addHandler(logging.NullHandler())
+# NEW: Step (7)
+logger.addHandler(hdlr=logging.NullHandler())
 
 
 def do_something() -> None:

@@ -7,10 +7,11 @@ FILE_MODE: str = "at"
 FILE_ENCODING: str = "utf-8"
 DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 FORMAT: str = (
-    "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno)4d] %(message)s"
+    "%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s"
 )
 
 
+# NEW
 def setup_logging(
     console_level=logging.DEBUG,
     file_level=logging.WARNING,
@@ -59,7 +60,7 @@ def setup_logging(
 
 
 def main() -> None:
-    """Main function."""
+    """Main of program."""
 
     os.system(command="cls" if os.name == "nt" else "clear")
 
@@ -83,6 +84,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    # NEW
     setup_logging(file_path="./app_0500.log")
     logger = logging.getLogger(name=__name__)
 

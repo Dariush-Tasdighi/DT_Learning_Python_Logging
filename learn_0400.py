@@ -1,5 +1,6 @@
-# در روش ذیل، صرفا لاگ‌های این فایل در فایل لاگ ذخیره می‌شود
-# و لاگ‌های ماژول‌ها، در فایل لاگ نمی‌شوند
+# در روش ذیل، صرفا لاگ‌های
+# این فایل، در فایل لاگ ذخیره می‌گردد
+# و لاگ‌های ماژول‌ها، در فایل، لاگ نمی‌شوند
 
 import os
 import logging
@@ -10,7 +11,7 @@ LOGGING_ENCODING: str = "utf-8"
 LOGGING_FILE_PATH: str = "./app_0400.log"
 LOGGING_DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 LOGGING_FORMAT: str = (
-    "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno)4d] %(message)s"
+    "%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s"
 )
 
 logging.basicConfig(
@@ -30,7 +31,7 @@ file_handler = logging.FileHandler(
     filename=LOGGING_FILE_PATH,
 )
 
-file_handler.setLevel(logging.ERROR)
+file_handler.setLevel(logging.WARNING)
 file_handler.setFormatter(fmt=formatter)
 
 logger = logging.getLogger(name=__name__)
@@ -38,7 +39,7 @@ logger.addHandler(hdlr=file_handler)
 
 
 def main() -> None:
-    """Main function."""
+    """Main of program."""
 
     os.system(command="cls" if os.name == "nt" else "clear")
 

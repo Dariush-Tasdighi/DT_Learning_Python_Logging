@@ -24,7 +24,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 
 # **************************************************
-# For Error Handling
+# Error Handling
 # **************************************************
 # try:
 #     result = 1 / 0
@@ -37,7 +37,15 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # try:
 #     result = 1 / 0
 # except Exception as e:
-#     print(f"[-] {e}")
+#     print(f"Error: {e}!")
+# **************************************************
+
+
+# **************************************************
+# try:
+#     result = 1 / 0
+# except Exception as e:
+#     print(f"[-] {e}!\n")
 # **************************************************
 
 
@@ -78,6 +86,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # # NEW
 # logging.basicConfig(level=logging.DEBUG)
+# # logging.basicConfig(level=logging.WARNING)  # Default
 # # logging.basicConfig(level=logging.ERROR)
 # # logging.basicConfig(level=logging.CRITICAL)
 
@@ -122,6 +131,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 #     # NEW
 #     format="%(asctime)s - %(levelname)s - %(message)s",
 #     # format="%(asctime)s - [%(levelname)-8s] - %(message)s",
+#     # format="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
 # )
 
 # logging.debug(msg="Debug...")
@@ -166,7 +176,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # # NEW: root -> Magooli
 # logger_magooli = logging.getLogger(name="Magooli")
 
-# logger_googooli.debug(msg="Debug...")
+# logger_googooli.debug(msg="Debug...")  # Default
 # logger_googooli.info(msg="Info...")
 # logger_googooli.warning(msg="Warning...")
 # logger_googooli.error(msg="Error...")
@@ -174,7 +184,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # print("-" * 50)
 
-# logger_magooli.debug(msg="Debug...")
+# logger_magooli.debug(msg="Debug...")  # Default
 # logger_magooli.info(msg="Info...")
 # logger_magooli.warning(msg="Warning...")
 # logger_magooli.error(msg="Error...")
@@ -202,7 +212,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # logger.debug(msg="Debug...")
 # logger.info(msg="Info...")
-# logger.warning(msg="Warning...")
+# logger.warning(msg="Warning...")  # Default
 # logger.error(msg="Error...")
 # logger.critical(msg="Critical...")
 # **************************************************
