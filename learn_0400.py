@@ -11,7 +11,7 @@ LOGGING_ENCODING: str = "utf-8"
 LOGGING_FILE_PATH: str = "./app_0400.log"
 LOGGING_DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 LOGGING_FORMAT: str = (
-    "%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s"
+    "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno) 3d] - %(message)s"
 )
 
 logging.basicConfig(
@@ -31,8 +31,8 @@ file_handler = logging.FileHandler(
     filename=LOGGING_FILE_PATH,
 )
 
-file_handler.setLevel(logging.WARNING)
 file_handler.setFormatter(fmt=formatter)
+file_handler.setLevel(level=logging.WARNING)
 
 logger = logging.getLogger(name=__name__)
 logger.addHandler(hdlr=file_handler)

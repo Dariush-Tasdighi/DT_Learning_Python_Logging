@@ -7,7 +7,7 @@ FILE_MODE: str = "at"
 FILE_ENCODING: str = "utf-8"
 DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
 FORMAT: str = (
-    "%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s"
+    "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno) 3d] - %(message)s"
 )
 
 

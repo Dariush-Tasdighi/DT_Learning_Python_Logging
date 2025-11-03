@@ -21,7 +21,7 @@ logging.basicConfig(
 # logging.basicConfig(
 #     level=logging.DEBUG,
 #     datefmt="%Y-%m-%d %H:%M:%S",
-#     format="%(asctime)s,%(msecs) 3d [%(levelname)-8s] [%(filename)s:%(lineno) 4d] - %(message)s",
+#     format="%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno) 3d] - %(message)s",
 # )
 
 logger = logging.getLogger(name=__name__)
@@ -42,13 +42,11 @@ def main() -> None:
 
     my_module.do_something()
 
-    print()
-
-    logger.debug(msg="This is debug.")
-    logger.info(msg="This is info.")
-    logger.warning(msg="This is warning.")
-    logger.error(msg="This is error.")
-    logger.critical(msg="This is critical.")
+    logger.debug(msg="سلام")
+    logger.info(msg="سلام")
+    logger.warning(msg="سلام")
+    logger.error(msg="سلام")
+    logger.critical(msg="سلام")
 
 
 if __name__ == "__main__":

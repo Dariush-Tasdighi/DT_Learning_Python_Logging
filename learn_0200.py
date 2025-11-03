@@ -2,6 +2,8 @@
 # Default: Console
 # Default: Warning
 # **************************************************
+# نیازی به نصب هیچ پکیجی نیست
+# **************************************************
 import logging
 
 logging.log(level=logging.DEBUG, msg="Debug...")
@@ -28,6 +30,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # **************************************************
 # try:
 #     result = 1 / 0
+
 # except Exception as e:
 #     print(f"Error! {e}")
 # **************************************************
@@ -36,6 +39,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # **************************************************
 # try:
 #     result = 1 / 0
+
 # except Exception as e:
 #     print(f"Error: {e}!")
 # **************************************************
@@ -44,6 +48,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # **************************************************
 # try:
 #     result = 1 / 0
+
 # except Exception as e:
 #     print(f"[-] {e}!\n")
 # **************************************************
@@ -54,6 +59,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # try:
 #     result = 1 / 0
+
 # except Exception as e:
 #     logging.error(msg=e)
 # **************************************************
@@ -64,6 +70,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # try:
 #     result = 1 / 0
+
 # except Exception as e:
 #     logging.error(msg=e, exc_info=True)
 # **************************************************
@@ -74,6 +81,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # try:
 #     result = 1 / 0
+
 # except Exception as e:
 #     logging.exception(msg=e)
 # **************************************************
@@ -143,6 +151,14 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 
 # **************************************************
+# root -> Resevered
+#   Magooli
+#   Googooli
+#   ...
+# **************************************************
+
+
+# **************************************************
 # Custom Logger
 # **************************************************
 # import logging
@@ -162,7 +178,6 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # **************************************************
 # import logging
 
-# # NEW
 # logging.basicConfig(
 #     # NEW
 #     level=logging.NOTSET,
@@ -195,12 +210,15 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # **************************************************
 # import logging
 
+# # NEW
 # root = logging.getLogger()
 
+# # NEW
 # # Let handlers decide what to emit
 # # keep root at lowest useful level
 # root.setLevel(level=logging.DEBUG)
 
+# # NEW
 # # از بین بردن تمام پیش‌فرض‌ها
 # # Remove existing handlers for
 # # avoiding duplicate logs on reconfigure!
@@ -228,16 +246,21 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # for handler in root.handlers:
 #     root.removeHandler(hdlr=handler)
 
+# # NEW
 # formatter = logging.Formatter(
 #     fmt="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
 # )
 
+# # NEW
 # console_handler = logging.StreamHandler()
 
+# # NEW
 # console_handler.setFormatter(fmt=formatter)
 # console_handler.setLevel(level=logging.DEBUG)
 
 # logger = logging.getLogger(name=__name__)
+
+# # NEW
 # logger.addHandler(hdlr=console_handler)
 
 # logger.debug(msg="Debug...")
@@ -279,6 +302,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # file_handler.setLevel(level=logging.WARNING)
 
 # logger = logging.getLogger(name=__name__)
+
 # # NEW
 # logger.addHandler(hdlr=file_handler)
 # logger.addHandler(hdlr=console_handler)
