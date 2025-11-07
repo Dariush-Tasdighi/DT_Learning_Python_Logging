@@ -30,9 +30,16 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # **************************************************
 # try:
 #     result = 1 / 0
+# except:
+#     print(f"Error!")
+# **************************************************
 
-# except Exception as e:
-#     print(f"Error! {e}")
+
+# **************************************************
+# try:
+#     result = 1 / 0
+# except Exception as error:  # e [OR] ex [OR] error
+#     print(f"Error! {error}")
 # **************************************************
 
 
@@ -40,8 +47,8 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # try:
 #     result = 1 / 0
 
-# except Exception as e:
-#     print(f"Error: {e}!")
+# except Exception as error:
+#     print(f"Error! {error}")
 # **************************************************
 
 
@@ -49,8 +56,17 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # try:
 #     result = 1 / 0
 
-# except Exception as e:
-#     print(f"[-] {e}!\n")
+# except Exception as error:
+#     print(f"Error: {error}!")
+# **************************************************
+
+
+# **************************************************
+# try:
+#     result = 1 / 0
+
+# except Exception as error:
+#     print(f"[-] {error}!\n")
 # **************************************************
 
 
@@ -60,8 +76,8 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # try:
 #     result = 1 / 0
 
-# except Exception as e:
-#     logging.error(msg=e)
+# except Exception as error:
+#     logging.error(msg=error)
 # **************************************************
 
 
@@ -71,8 +87,8 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # try:
 #     result = 1 / 0
 
-# except Exception as e:
-#     logging.error(msg=e, exc_info=True)
+# except Exception as error:
+#     logging.error(msg=error, exc_info=True)
 # **************************************************
 
 
@@ -82,8 +98,8 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # try:
 #     result = 1 / 0
 
-# except Exception as e:
-#     logging.exception(msg=e)
+# except Exception as error:
+#     logging.exception(msg=error)
 # **************************************************
 
 
@@ -129,7 +145,6 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # **************************************************
 # Change the Format
-#
 # https://docs.python.org/3/library/logging.html#logrecord-attributes
 # **************************************************
 # import logging
@@ -151,7 +166,7 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 
 # **************************************************
-# root -> Resevered
+# root -> Reserved Word
 #   Magooli
 #   Googooli
 #   ...

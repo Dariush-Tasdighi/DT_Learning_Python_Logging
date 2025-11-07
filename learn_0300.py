@@ -8,6 +8,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
+# /Step (1)
 
 # Step (2)
 # logging.basicConfig(
@@ -16,6 +17,7 @@ logging.basicConfig(
 #     datefmt="%Y-%m-%dT%H:%M:%S",
 #     format="%(asctime)s,%(msecs)03d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
 # )
+# /Step (2)
 
 # Step (3)
 # logging.basicConfig(
@@ -23,6 +25,7 @@ logging.basicConfig(
 #     datefmt="%Y-%m-%d %H:%M:%S",
 #     format="%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno) 3d] - %(message)s",
 # )
+# /Step (3)
 
 logger = logging.getLogger(name=__name__)
 

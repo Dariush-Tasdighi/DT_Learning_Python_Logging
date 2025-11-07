@@ -7,6 +7,7 @@ import logging
 from rich import print
 import learn_0400_module as my_module
 
+LOGGING_FILE_MODE: str = "at"
 LOGGING_ENCODING: str = "utf-8"
 LOGGING_FILE_PATH: str = "./app_0400.log"
 LOGGING_DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
@@ -27,6 +28,7 @@ formatter = logging.Formatter(
 )
 
 file_handler = logging.FileHandler(
+    mode=LOGGING_FILE_MODE,
     encoding=LOGGING_ENCODING,
     filename=LOGGING_FILE_PATH,
 )
