@@ -1,19 +1,14 @@
 # Working with Logging
 
-- Package: 'rich'
-    - https://pypi.org/project/rich
-    - https://github.com/Textualize/rich
-    - https://rich.readthedocs.io/en/latest
+- 'rich' package:
+  - [pypi.org](https://pypi.org/project/rich)
+  - [github.com](https://github.com/Textualize/rich)
+  - Extra:
+    - [Site](https://rich.readthedocs.io/en/latest)
 
 ---
 
-### References
-
-- 
-
----
-
-### Setup Environment
+## Setup Environment
 
 ```bash
 python -m venv .venv
@@ -21,6 +16,10 @@ python -m venv .venv
 
 ```bash
 .\.venv\Scripts\activate
+```
+
+```bash
+python -m pip install -r .\requirements.txt -U
 ```
 
 ```bash

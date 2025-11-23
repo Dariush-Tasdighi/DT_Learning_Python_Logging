@@ -2,7 +2,7 @@
 # Default: Console
 # Default: Warning
 # **************************************************
-# نیازی به نصب هیچ پکیجی نیست
+# You do not need install any package!
 # **************************************************
 import logging
 
@@ -167,8 +167,9 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 # **************************************************
 # root -> Reserved Word
-#   Magooli
-#   Googooli
+#   UI
+#   DAL
+#   BLL
 #   ...
 # **************************************************
 

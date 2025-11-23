@@ -7,30 +7,30 @@ import logging
 from rich import print
 import learn_0400_module as my_module
 
-LOGGING_FILE_MODE: str = "at"
-LOGGING_ENCODING: str = "utf-8"
-LOGGING_FILE_PATH: str = "./app_0400.log"
-LOGGING_DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
-LOGGING_FORMAT: str = (
+FILE_MODE: str = "at"
+ENCODING: str = "utf-8"
+FILE_PATH: str = "./app_0400.log"
+DATE_FORMAT: str = "%Y-%m-%d %H:%M:%S"
+FORMAT: str = (
     "%(asctime)s,%(msecs)3d [%(levelname)-8s] [%(filename)s:%(lineno) 3d] - %(message)s"
 )
 
 logging.basicConfig(
     level=logging.DEBUG,
-    format=LOGGING_FORMAT,
-    encoding=LOGGING_ENCODING,
-    datefmt=LOGGING_DATE_FORMAT,
+    format=FORMAT,
+    encoding=ENCODING,
+    datefmt=DATE_FORMAT,
 )
 
 formatter = logging.Formatter(
-    fmt=LOGGING_FORMAT,
-    datefmt=LOGGING_DATE_FORMAT,
+    fmt=FORMAT,
+    datefmt=DATE_FORMAT,
 )
 
 file_handler = logging.FileHandler(
-    mode=LOGGING_FILE_MODE,
-    encoding=LOGGING_ENCODING,
-    filename=LOGGING_FILE_PATH,
+    mode=FILE_MODE,
+    encoding=ENCODING,
+    filename=FILE_PATH,
 )
 
 file_handler.setFormatter(fmt=formatter)
