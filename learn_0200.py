@@ -15,6 +15,8 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 
 # **************************************************
+# Using function (method) helper
+# **************************************************
 # import logging
 
 # logging.debug(msg="Debug...")
@@ -166,6 +168,29 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 
 
 # **************************************************
+# Using 'rich' package
+# **************************************************
+# import logging
+
+# # NEW
+# from rich.logging import RichHandler
+
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     # NEW
+#     handlers=[RichHandler(show_time=False)],
+#     format="%(asctime)s - %(name)s - %(message)s",
+# )
+
+# logging.debug(msg="Debug...")
+# logging.info(msg="Info...")
+# logging.warning(msg="Warning...")
+# logging.error(msg="Error...")
+# logging.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
 # root -> Reserved Word
 #   UI
 #   DAL
@@ -197,7 +222,6 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # logging.basicConfig(
 #     # NEW
 #     level=logging.NOTSET,
-#     # NEW: %(name)s
 #     format="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
 # )
 
@@ -297,14 +321,14 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 # for handler in root.handlers:
 #     root.removeHandler(hdlr=handler)
 
-# formatter = logging.Formatter(
+# console_handler = logging.StreamHandler()
+
+# console_formatter = logging.Formatter(
 #     fmt="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
 # )
 
-# console_handler = logging.StreamHandler()
-
-# console_handler.setFormatter(fmt=formatter)
 # console_handler.setLevel(level=logging.DEBUG)
+# console_handler.setFormatter(fmt=console_formatter)
 
 # # NEW
 # file_handler = logging.FileHandler(
@@ -313,13 +337,66 @@ logging.log(level=logging.CRITICAL, msg="Critical...")
 #     filename="./app_0200.log",
 # )
 
+# file_formatter = logging.Formatter(
+#     fmt="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
+# )
+
 # # NEW
-# file_handler.setFormatter(fmt=formatter)
 # file_handler.setLevel(level=logging.WARNING)
+# file_handler.setFormatter(fmt=file_formatter)
 
 # logger = logging.getLogger(name=__name__)
 
 # # NEW
+# logger.addHandler(hdlr=file_handler)
+# logger.addHandler(hdlr=console_handler)
+
+# logger.debug(msg="Debug...")
+# logger.info(msg="Info...")
+# logger.warning(msg="Warning...")
+# logger.error(msg="Error...")
+# logger.critical(msg="Critical...")
+# **************************************************
+
+
+# **************************************************
+# Replace 'logging.StreamHandler' with 'rich.logging.RichHandler'
+# **************************************************
+# import logging
+
+# # NEW
+# from rich.logging import RichHandler
+
+# root = logging.getLogger()
+# root.setLevel(level=logging.DEBUG)
+# for handler in root.handlers:
+#     root.removeHandler(hdlr=handler)
+
+# # console_handler = logging.StreamHandler()
+# console_handler = RichHandler(show_time=False)
+
+# console_formatter = logging.Formatter(
+#     fmt="%(asctime)s - %(name)s - %(message)s",
+# )
+
+# console_handler.setLevel(level=logging.DEBUG)
+# console_handler.setFormatter(fmt=console_formatter)
+
+# file_handler = logging.FileHandler(
+#     mode="at",
+#     encoding="utf-8",
+#     filename="./app_0200.log",
+# )
+
+# file_formatter = logging.Formatter(
+#     fmt="%(asctime)s - [%(levelname)-8s] - %(name)s - %(message)s",
+# )
+
+# file_handler.setLevel(level=logging.WARNING)
+# file_handler.setFormatter(fmt=file_formatter)
+
+# logger = logging.getLogger(name=__name__)
+
 # logger.addHandler(hdlr=file_handler)
 # logger.addHandler(hdlr=console_handler)
 

@@ -3,16 +3,14 @@
 # **************************************************
 
 import os
+from rich import print
+import learn_0600_module as my_module
 
 # Step (1)
 import logging
-from rich import print
 
 # Step (2)
 from dtx_logging import setup_logging
-import learn_0600_module as my_module
-
-# from rich.logging import RichHandler  # TODO
 
 
 def main() -> None:
